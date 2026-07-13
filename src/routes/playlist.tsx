@@ -8,7 +8,7 @@ import { Music2, Sparkles, Clock } from "lucide-react";
 const searchSchema = z.object({ mood: z.string().optional() });
 
 export const Route = createFileRoute("/playlist")({
-  head: () => ({ meta: [{ title: "Bollywood Mood Playlist — Bloom" }] }),
+  head: () => ({ meta: [{ title: "Playlist — Bloom" }] }),
   validateSearch: searchSchema,
   component: PlaylistPage,
 });
@@ -201,7 +201,7 @@ function PlaylistPage() {
       <SiteHeader />
       <section className="mx-auto max-w-6xl px-5 py-12">
         <div className="text-center mb-8">
-          <h1 className="font-display text-4xl md:text-5xl">Your Bollywood playlist</h1>
+          <h1 className="font-display text-4xl md:text-5xl">Playlist</h1>
           <p className="text-muted-foreground mt-3 flex items-center justify-center gap-2 flex-wrap">
             <Clock className="w-4 h-4" /> {tod} · <Sparkles className="w-4 h-4 text-primary" /> {tagline} · 20 songs
           </p>
