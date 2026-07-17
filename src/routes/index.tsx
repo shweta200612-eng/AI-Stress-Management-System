@@ -6,7 +6,7 @@ import { JOKES, MOTIVATIONAL_QUOTES } from "@/lib/funbits";
 import { hasActiveSession } from "@/lib/session";
 import {
   Gamepad2, Quote, Music2, Sparkles, Bot, BookHeart, BellRing, Wind,
-  Smile, Heart, ArrowRight, Headphones, Drama, Laugh, Shuffle, Dumbbell, Flower2, Activity,
+  Smile, Heart, ArrowRight, Headphones, Drama, Laugh, Shuffle, Dumbbell, Video, Activity,Pencil,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -23,16 +23,14 @@ export const Route = createFileRoute("/")({
 
 const FEATURES = [
   { icon: Gamepad2, title: "Funny Games", desc: "Six quick mini games with difficulty & progress.", to: "/games" as const, tint: "from-sky-50 to-blue-100" },
-  { icon: Quote, title: "Motivational Quotes", desc: "Hand-picked words to soften your day.", to: "/" as const, tint: "from-sky-50 to-cyan-100" },
-  { icon: Music2, title: "Bollywood Playlists", desc: "20 mood-matched Bollywood songs per feeling.", to: "/playlist" as const, tint: "from-sky-50 to-blue-100" },
-  { icon: Drama, title: "Funny Jokes", desc: "50 tiny giggles on tap — laughter heals.", to: "/" as const, tint: "from-sky-50 to-blue-100" },
-  { icon: Dumbbell, title: "Exercise Sessions", desc: "Workouts tuned to your current stress level.", to: "/exercise" as const, tint: "from-blue-50 to-sky-100" },
-  { icon: Flower2, title: "Meditation", desc: "Guided sessions — gratitude, 4-7-8, body scan.", to: "/exercise" as const, tint: "from-sky-50 to-cyan-50" },
+  {icon: Quote,title: "Motivational Quotes",desc: "Hand-picked words to soften your day.",to: "/quotes" as const,tint: "from-sky-50 to-cyan-100"},  { icon: Music2, title: " Playlists", desc: "20 mood-matched Bollywood songs per feeling.", to: "/playlist" as const, tint: "from-sky-50 to-blue-100" },
+  {icon: Drama,title: "Funny Jokes",desc: "50 tiny giggles on tap — laughter heals.",to: "/jokes" as const,tint: "from-sky-50 to-blue-100"},  { icon: Dumbbell, title: "Exercise Sessions", desc: "Workouts tuned to your current stress level.", to: "/exercise" as const, tint: "from-blue-50 to-sky-100" },
   { icon: Sparkles, title: "Dancing Tutorials", desc: "10 styles — hip hop, classical, K-Pop & more.", to: "/dance" as const, tint: "from-sky-100 to-blue-200" },
   { icon: Bot, title: "AI Chat Buddy", desc: "A kind, private companion that listens anytime.", to: "/chat" as const, tint: "from-sky-50 to-blue-100" },
   { icon: Smile, title: "Emotion Check-in", desc: "Face & voice based vibe check with advice.", to: "/emotion" as const, tint: "from-sky-50 to-blue-100" },
+  { icon: Pencil,title: "Sketch & Draw",desc: "Relax your mind with freehand drawing and creative sketching.",to: "/sketch" as const,tint: "from-pink-50 to-purple-100",},
+  { icon: Video,title: "Vlogs",desc: "Inspirational journeys — overcoming stress and challenges",to: "/vlogs" as const,tint: "from-sky-50 to-cyan-50"}
 ];
-
 function Home() {
   const navigate = useNavigate();
   const [mood, setMood] = useState<Mood | null>(null);

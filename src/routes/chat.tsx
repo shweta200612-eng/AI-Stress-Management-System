@@ -1,9 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute,} from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Bot, Send, Loader2, User } from "lucide-react";
 import { toast } from "sonner";
-
 export const Route = createFileRoute("/chat")({
   head: () => ({ meta: [{ title: "AI Chat Buddy — Bloom" }] }),
   component: ChatPage,
@@ -20,7 +19,7 @@ const STARTERS = [
 
 function ChatPage() {
   const [messages, setMessages] = useState<Msg[]>([
-    { id: "0", role: "assistant", parts: [{ type: "text", text: "Hi, I'm Bloom 🌸 — your wellness buddy. What's on your heart today?" }] },
+    { id: "0", role: "assistant", parts: [{ type: "text", text: "Hi, I'm Bloom  — your wellness buddy. What's on your heart today?" }] },
   ]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);

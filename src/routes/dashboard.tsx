@@ -94,11 +94,11 @@ const INSIGHTS = [
 ];
 
 const RECOMMENDATIONS = [
-  { icon: Activity, text: "Take a 10-minute walk today", to: "/exercise" },
-  { icon: Moon, text: "Reduce screen time by 1 hour", to: "/" },
-  { icon: Wind, text: "Practice 5-minute breathing", to: "/exercise" },
-  { icon: BookOpen, text: "Go to bed 30 minutes earlier", to: "/" },
-  { icon: Droplet, text: "Drink 2 more glasses of water", to: "/" },
+  { icon: Activity, text: "Take a 10-minute walk today", to: "/recommendations" },
+  { icon: Moon, text: "Reduce screen time ", to: "/screen time" },
+  { icon: Wind, text: "Practice 5-minute breathing", to: "/5min breathing" },
+  { icon: BookOpen, text: "Go to bed 30 minutes earlier", to: "/bed time" },
+  { icon: Droplet, text: "Drink 2 more glasses of water", to: "/drink water" },
 ];
 
 const ACHIEVEMENTS = [
@@ -184,7 +184,7 @@ function Dashboard() {
           <div className="w-16 h-16 rounded-2xl bg-gradient-rose grid place-items-center mx-auto shadow-soft">
             <UserCircle2 className="w-8 h-8 text-white" />
           </div>
-          <h1 className="font-display text-4xl mt-6">Your dashboard awaits 🌸</h1>
+          <h1 className="font-display text-4xl mt-6">Your dashboard awaits </h1>
           <p className="text-muted-foreground mt-3">Sign in to view your stress insights, mood trends, and personalized wellness data.</p>
           <div className="mt-8 flex justify-center gap-3">
             <Link to="/auth" className="px-6 py-3 rounded-full bg-gradient-rose text-white font-medium shadow-soft hover:shadow-glow transition">Sign in</Link>
@@ -207,7 +207,7 @@ function Dashboard() {
         {/* Header row */}
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <h1 className="font-display text-3xl md:text-4xl">{greet}, {greetName}! <span className="inline-block">👋</span></h1>
+            <h1 className="font-display text-3xl md:text-4xl">{greet}, {greetName}! <span className="inline-block"></span></h1>
             <p className="text-sm text-muted-foreground mt-1">Take a deep breath and focus on your well-being.</p>
           </div>
           <div className="flex items-center gap-2">
@@ -373,36 +373,17 @@ function Dashboard() {
             <h2 className="font-display text-xl mb-3">Today's Mood</h2>
             {todayMood ? (
               <>
-                <div className="text-6xl my-3">{MOODS.find((m) => m.id === todayMood.mood)?.emoji}</div>
                 <div className="font-display text-2xl capitalize">{todayMood.mood}</div>
                 <div className="text-sm text-muted-foreground mt-1">You're feeling {todayMood.mood} today!</div>
               </>
             ) : (
               <>
-                <div className="text-6xl my-3">🌸</div>
+                <div className="text-6xl my-3"></div>
                 <Link to="/" className="text-sm px-4 py-2 rounded-full bg-gradient-rose text-white inline-block mt-2">Log your mood</Link>
               </>
             )}
             <div className="mt-4 p-3 rounded-2xl bg-accent/40 text-left">
               <div className="text-[10px] uppercase tracking-widest text-primary font-medium">Most frequent this month</div>
-              <div className="font-display text-lg capitalize">{mostFrequent?.label || "Calm"} {mostFrequent?.emoji || "😌"}</div>
-            </div>
-          </Card>
-
-          {/* Weekly mood */}
-          <Card className="lg:col-span-2">
-            <h2 className="font-display text-xl mb-4">Weekly Mood Trend</h2>
-            <div className="grid grid-cols-7 gap-2">
-              {moodCounts.map((m) => (
-                <div key={m.id} className="text-center">
-                  <div className="h-28 flex items-end justify-center">
-                    <div className="w-full rounded-t-xl bg-gradient-to-t from-primary to-accent transition-all hover:opacity-80" style={{ height: `${Math.max(8, Math.min(100, m.n * 25))}%` }} />
-                  </div>
-                  <div className="text-2xl mt-2">{m.emoji}</div>
-                  <div className="text-[10px] text-muted-foreground capitalize">{m.label}</div>
-                  <div className="text-[10px] font-medium">{m.n}</div>
-                </div>
-              ))}
             </div>
           </Card>
         </div>

@@ -147,7 +147,7 @@ export const MEDITATION_SESSIONS: {
   id: string; level: StressLevel; title: string; duration: string; emoji: string; script: string[];
 }[] = [
   {
-    id: "med-low", level: "low", title: "Gratitude scan", duration: "5 min", emoji: "🌼",
+    id: "med-low", level: "low", title: "Gratitude scan", duration: "5 min", emoji: "",
     script: [
       "Sit comfortably and close your eyes.",
       "Take 3 slow breaths — in through the nose, out through the mouth.",

@@ -1,8 +1,8 @@
 import { createFileRoute, useSearch } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { z } from "zod";
 import { SiteHeader } from "@/components/SiteHeader";
-import { MOODS, type Mood } from "@/lib/wellness-store";
+import { type Mood } from "@/lib/wellness-store";
 import { Music2, Sparkles, Clock } from "lucide-react";
 
 const searchSchema = z.object({ mood: z.string().optional() });
@@ -18,26 +18,26 @@ type Track = { title: string; artist: string; ytId: string };
 // 20 Bollywood tracks per mood (curated)
 const LIBRARY: Record<Mood, Track[]> = {
   calm: [
-    { title: "Tum Hi Ho", artist: "Arijit Singh", ytId: "IJq0yX9HX2k" },
-    { title: "Raabta", artist: "Arijit Singh", ytId: "zlt38OOqwDc" },
-    { title: "Tujhe Kitna Chahne Lage", artist: "Arijit Singh", ytId: "AEIVhBS6baE" },
-    { title: "Phir Bhi Tumko Chaahunga", artist: "Arijit Singh", ytId: "vWXrCANRYrM" },
-    { title: "Tera Yaar Hoon Main", artist: "Arijit Singh", ytId: "C5dDXkZxRSk" },
-    { title: "Pal", artist: "Arijit Singh", ytId: "wn7v5KFFW40" },
-    { title: "Hawayein", artist: "Arijit Singh", ytId: "cYOB941gyXI" },
-    { title: "Agar Tum Saath Ho", artist: "Arijit & Alka", ytId: "xRb_9SP-RqM" },
-    { title: "Jeene Laga Hoon", artist: "Atif Aslam", ytId: "PHrNCgRy-tk" },
-    { title: "Tere Bina", artist: "A.R. Rahman", ytId: "TanK-yA6X1A" },
-    { title: "Khuda Jaane", artist: "KK & Shilpa Rao", ytId: "lEY8Z00FsZA" },
-    { title: "Iktara", artist: "Kavita Seth", ytId: "lLVH1KMhWxo" },
-    { title: "Kun Faya Kun", artist: "A.R. Rahman", ytId: "T94PHkuydcw" },
-    { title: "Tere Liye", artist: "Lata & Roop Kumar", ytId: "MEHCRDdgrjg" },
-    { title: "Tum Mile", artist: "Neeraj Shridhar", ytId: "IUd5DwHa2qE" },
-    { title: "Tu Jo Mila", artist: "K.K.", ytId: "TpkfRkU5IY8" },
-    { title: "Mere Naam Tu", artist: "Abhay Jodhpurkar", ytId: "rwwgnFvDx80" },
-    { title: "Kabira", artist: "Tochi Raina & Rekha", ytId: "jHNNMj5bNQw" },
-    { title: "Janam Janam", artist: "Arijit Singh", ytId: "WTJSt4wP2ME" },
-    { title: "Suraj Hua Maddham", artist: "Sonu & Alka", ytId: "WIRPQ8B0WjU" },
+    { title: " KAR HAR MAIDAAN FATEH", artist: "Rajkumar Hirani", ytId: "9iIX4PBplAY" },
+    { title: " Aarambh hai Prachand", artist: "Piyush Mishra", ytId: "WgfBVGGGG-U" },
+    { title: "Bandeya Rey Bandeya", artist: "Arijit Singh", ytId: "Wj8C_bpnkTY" },
+    { title: "Shaabaashiyaan", artist: "Shilpa Rao, Anand Bhaskar & Abhijeet Srivastava", ytId: "Q3JMD4oaXlI" },
+    { title: "Ziddi Dil", artist: "Vishal Dadlani", ytId: "puKD3nkB1h4" },
+    { title: "Ek Zindagi Meri", artist: "Tanishkaa Sanghvi, Sachin - Jigar", ytId: "mOEL8Q-2bSo" },
+    { title: "Sultan ", artist: "Sukhwinder Singh, Shadab Faridi", ytId: "abiL84EAWSY" },
+    { title: "Zinda", artist: "Siddharth Mahadevan", ytId: "TBP5kFOsqO8" },
+    { title: "Sapne Re", artist: " Amit Trivedi ", ytId: "0Rm2cajspwY" },
+    { title: "Parinda", artist: " Amaal Mallik", ytId: "1JPlmLKsrB4" },
+    { title: "Manzar Hai Yeh Naya ", artist: "Shantanu Sudame & Shashwat Sachdev", ytId: "x5fYTPvrz4g" },
+    { title: "Jeete Hain Chal", artist: "KAVITA SETH", ytId: "GZIh0bhuFtg" },
+    { title: "Love You Zindagi", artist: " Amit Trivedi", ytId: "bw7bVpI5VcM" },
+    { title: "Jiya Re ", artist: " A R Rahman", ytId: "smn3mDBOUy4" },
+    { title: "Kudi Nu Nachne De", artist: "Vishal Dadlani, Sachin- Jigar", ytId: "oSpMspvMkSQ" },
+    { title: "Dhaakad",artist: "Pritam", ytId: "0zFoHrvbRu4" },
+    { title: "Dangal Dangal", artist: "Daler Mehndi", ytId: "GLK7flBXqsk" },
+    { title: "Khol De Par", artist: "Arijit Singh", ytId: "u871WK7kem8" },
+    { title: "Chak De India", artist: "Sukhwinder Singh", ytId: "bnqLzCsffwY" },
+    { title: "Lakshya", artist: "Shankar Mahadevan", ytId: "sSsw7QPrUk0" },
   ],
   happy: [
     { title: "Gallan Goodiyaan", artist: "Dil Dhadakne Do", ytId: "mAZNK5OUaC8" },
@@ -184,14 +184,13 @@ function timeOfDay(): "morning" | "afternoon" | "evening" | "night" {
 
 function PlaylistPage() {
   const search = useSearch({ from: "/playlist" });
-  const initial = (search.mood as Mood) || "calm";
-  const [mood, setMood] = useState<Mood>(initial);
+  const mood = (search.mood as Mood) || "calm";
   const tod = useMemo(timeOfDay, []);
 
   const tracks = LIBRARY[mood] || LIBRARY.calm;
   const tagline = useMemo(() => {
     if (tod === "morning") return mood === "tired" ? "Soft wake-up Bollywood" : "A bright Bollywood start";
-    if (tod === "afternoon") return "Mid-day Bollywood reset";
+    if (tod === "afternoon") return "Mid-day reset";
     if (tod === "evening") return "Wind-down warmth — desi style";
     return "Late-night Bollywood softness";
   }, [mood, tod]);
@@ -201,29 +200,19 @@ function PlaylistPage() {
       <SiteHeader />
       <section className="mx-auto max-w-6xl px-5 py-12">
         <div className="text-center mb-8">
-          <h1 className="font-display text-4xl md:text-5xl">Playlist</h1>
+          <h1 className="font-display text-4xl md:text-5xl">Your playlist</h1>
           <p className="text-muted-foreground mt-3 flex items-center justify-center gap-2 flex-wrap">
             <Clock className="w-4 h-4" /> {tod} · <Sparkles className="w-4 h-4 text-primary" /> {tagline} · 20 songs
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
-          {MOODS.map((m) => (
-            <button
-              key={m.id}
-              onClick={() => setMood(m.id)}
-              className={`px-4 py-2 rounded-full text-sm border transition ${
-                mood === m.id ? "bg-gradient-rose text-white border-transparent" : "bg-white border-border hover:bg-accent/40"
-              }`}
-            >
-              {m.emoji} {m.label}
-            </button>
-          ))}
-        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {tracks.map((t, i) => (
-            <div key={`${t.ytId}-${i}`} className="rounded-3xl bg-white border border-border p-3 shadow-soft">
+           <div
+  key={`${t.ytId}-${i}`}
+  className="rounded-3xl bg-white border border-border p-3 shadow-soft"
+>
               <div className="aspect-video rounded-2xl overflow-hidden bg-black">
                 <iframe
                   width="100%" height="100%"

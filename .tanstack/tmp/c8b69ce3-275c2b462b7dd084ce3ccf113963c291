@@ -1,0 +1,145 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/SiteHeader";
+
+export const Route = createFileRoute("/bed time")({
+  component: SleepRecommendation,
+});
+
+function SleepRecommendation() {
+  return (
+    <div className="min-h-screen bg-background">
+      <SiteHeader />
+
+      <div className="max-w-6xl mx-auto px-6 py-10">
+
+        <h1 className="text-4xl font-bold">
+          😴 Go to Bed 30 Minutes Earlier
+        </h1>
+
+        <p className="text-muted-foreground mt-2">
+          Going to bed just 30 minutes earlier each night can improve your
+          physical health, mental well-being, and daily productivity. Better
+          sleep helps your brain recover, reduces stress, and improves your mood.
+        </p>
+
+        <div className="mt-8 space-y-6">
+
+          {/* Benefits */}
+          <div className="rounded-2xl border p-6 shadow">
+            <h2 className="text-2xl font-semibold">
+              🌟 Benefits of Sleeping Earlier
+            </h2>
+
+            <ul className="list-disc ml-6 mt-4 space-y-2">
+              <li>Reduces stress and anxiety.</li>
+              <li>Improves memory and concentration.</li>
+              <li>Boosts energy throughout the day.</li>
+              <li>Strengthens the immune system.</li>
+              <li>Enhances emotional well-being.</li>
+              <li>Improves academic and work performance.</li>
+            </ul>
+          </div>
+
+          {/* Steps */}
+          <div className="rounded-2xl border p-6 shadow">
+            <h2 className="text-2xl font-semibold">
+              🌙 How to Sleep Earlier
+            </h2>
+
+            <ol className="list-decimal ml-6 mt-4 space-y-2">
+              <li>Set a fixed bedtime every night.</li>
+              <li>Stop using your phone at least 30 minutes before bed.</li>
+              <li>Dim the lights in your room.</li>
+              <li>Read a book or listen to calming music.</li>
+              <li>Avoid caffeine or heavy meals before sleeping.</li>
+              <li>Keep your bedroom cool, quiet, and comfortable.</li>
+            </ol>
+          </div>
+
+          {/* Sleep Routine */}
+          <div className="rounded-2xl border p-6 shadow">
+            <h2 className="text-2xl font-semibold">
+              🛌 Healthy Bedtime Routine
+            </h2>
+
+            <ul className="list-disc ml-6 mt-4 space-y-2">
+              <li>Take a warm shower.</li>
+              <li>Practice 5 minutes of deep breathing.</li>
+              <li>Write down tomorrow's tasks.</li>
+              <li>Turn off electronic devices.</li>
+              <li>Keep your room dark and quiet.</li>
+            </ul>
+          </div>
+
+          {/* Signs */}
+          <div className="rounded-2xl border p-6 shadow">
+            <h2 className="text-2xl font-semibold">
+              ⚠ Signs You Need More Sleep
+            </h2>
+
+            <ul className="list-disc ml-6 mt-4 space-y-2">
+              <li>Feeling tired throughout the day.</li>
+              <li>Difficulty concentrating.</li>
+              <li>Frequent headaches.</li>
+              <li>Low motivation.</li>
+              <li>Feeling stressed or irritable.</li>
+            </ul>
+          </div>
+
+          {/* AI Tip */}
+          <div className="rounded-2xl border p-6 shadow bg-green-50">
+            <h2 className="text-2xl font-semibold text-green-700">
+              🤖 AI Wellness Tip
+            </h2>
+
+            <p className="mt-3">
+              Based on your recent stress level, sleeping 30 minutes earlier can
+              help your brain recover better, improve emotional balance, and
+              reduce stress the following day.
+            </p>
+          </div>
+
+          {/* Motivation */}
+          <div className="rounded-2xl border p-6 shadow bg-blue-50">
+            <h2 className="text-2xl font-semibold text-blue-700">
+              💙 Daily Motivation
+            </h2>
+
+            <blockquote className="italic mt-3">
+              "A good day starts with a good night's sleep."
+            </blockquote>
+          </div>
+
+          {/* Challenge */}
+          <div className="rounded-2xl border p-6 shadow bg-yellow-50">
+            <h2 className="text-2xl font-semibold text-yellow-700">
+              🎯 Today's Challenge
+            </h2>
+
+            <p className="mt-3">
+              Tonight, switch off all electronic devices 30 minutes before your
+              usual bedtime and try to sleep earlier than usual.
+            </p>
+          </div>
+
+          {/* Completion */}
+          <div className="rounded-2xl border p-6 shadow text-center">
+            <h2 className="text-2xl font-semibold">
+              ✅ Complete Today's Goal
+            </h2>
+
+            <p className="mt-2">
+              Successfully went to bed 30 minutes earlier? Mark today's sleep
+              goal as completed and continue building a healthier sleep routine.
+            </p>
+
+            <button className="mt-5 px-6 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700">
+              Mark as Completed
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}

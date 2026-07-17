@@ -13,7 +13,7 @@ function DancePage() {
   const [style, setStyle] = useState<DanceStyle | "all">("all");
   const videos = style === "all" ? DANCE_VIDEOS : DANCE_VIDEOS.filter((v) => v.style === style);
   console.log("DANCE_VIDEOS:", DANCE_VIDEOS);
-  console.log("Length: 16 ", DANCE_VIDEOS.length);
+  console.log("Length:", DANCE_VIDEOS.length);
   return (
     <div className="min-h-screen">
       <SiteHeader />
